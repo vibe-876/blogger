@@ -2,4 +2,7 @@
 #+author: cam a.
 
 
+This is a little markdown to html project I'm working on, written in haskell.
 I have no idea why this shows up as having c in it, maybe github thinks cabal is a c file?
+
+This might have a use for you, use it if you want.
