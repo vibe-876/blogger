@@ -1,0 +1,5 @@
+#+title: blogger
+#+author: cam a.
+
+
+I have no idea why this shows up as having c in it, maybe github thinks cabal is a c file?
