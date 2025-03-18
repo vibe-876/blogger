@@ -2,15 +2,19 @@ module HtmlParser where
 
 
 -- Notes is there for incase I want inline stuff in future.
-data HTML = Pair Tag Notes Content
--- A line should be in this format.
-data Line = Tag Content
+data HTML = Pair Tag Content
+          | Single Tag Content
+
+instance Show HTML where
+  show (Pair t c)   = foldr (++) [] ["<", t, ">", c, "</", t, ">"]
+  show (Single t c) = foldr (++) [] ["<", t, " ", c, ">"]
 
 type Tag = String
 type Notes = String
 type Content = String
 
 
-toHtml :: HTML -> String
-toHtml (Pair t n c) = foldr (++) [] ["<", t, " ", n, ">", c, "</", t, ">"]
-
+fromLine :: String -> HTML
+fromLine []     = Single "br" ""
+fromLine (x:xs) | x == ';'  = Pair "h1" xs
+                | otherwise = Pair "p" xs
