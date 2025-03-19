@@ -7,4 +7,6 @@ import HtmlParser (renderHtml)
 main :: IO ()
 main = do
   args <- getArgs
-  readFile (args !! 0) >>= writeFile ((args !! 1) ++  ".html") . renderHtml
+  if (length args) >= 2
+    then readFile (args !! 0) >>= writeFile ((args !! 1) ++  ".html") . renderHtml
+    else print "Noooooo, too few arguments!"
