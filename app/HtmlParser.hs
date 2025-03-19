@@ -6,8 +6,8 @@ data HTML = Pair Tag Content Notes
           | Single Tag Content
  
 instance Show HTML where
-  show (Pair t c n) = foldr (++) [] ["<", t, " ", n, ">", c, "</", t, ">"]
-  show (Single t c) = foldr (++) [] ["<", t, " ", c, ">"]
+  show (Pair t c n) = concat ["<", t, " ", n, ">", c, "</", t, ">"]
+  show (Single t c) = concat ["<", t, " ", c, ">"]
 
 type Tag = String
 type Notes = String
@@ -15,7 +15,7 @@ type Content = String
 
 
 renderHtml :: String -> String
-renderHtml = foldr (++) [] . map show . map fromLine . splitOn "\n"
+renderHtml = concat . map (show . fromLine) . splitOn "\n"
 
 fromLine :: String -> HTML
 fromLine []     = Single "br" ""
