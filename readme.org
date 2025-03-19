@@ -3,6 +3,6 @@
 
 
 This is a little markdown to html project I'm working on, written in haskell.
-I have no idea why this shows up as having c in it, maybe github thinks cabal is a c file?
 
-This might have a use for you, use it if you want.
+You should however note that this is in no way a good project of mine, if you want something good just use org or something.
+This is just a learning exercise for me, to remind myself how to use cabal (it's been a while).
