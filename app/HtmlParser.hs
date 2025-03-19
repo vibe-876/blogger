@@ -24,7 +24,6 @@ fromLine (x:xs) | x == ';'  = Pair "h1" xs ""
                 | otherwise = Pair "p" (x:xs) ""
 
 buildLink :: String -> HTML
-buildLink [] = Pair "p" "<b>EMPTY LINK!</b>" ""
 buildLink xs = Pair "a" content ("href=" ++ notes)
   where
     text = splitOn "!" xs
