@@ -4,6 +4,5 @@ import HtmlParser (renderHtml)
 
 
 main :: IO ()
-main = do
-  inputString <- readFile "test"
-  print (renderHtml inputString)
+main = readFile "test" >>= writeFile "post.html" . renderHtml
+  
