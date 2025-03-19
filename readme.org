@@ -29,3 +29,5 @@ Finally, any other line gets put between ~<p>...</p>~ tags.
 
 I might add more in future, depending on what I need.
 All css should probably be in the ~[headers]~ argument, I'd just get it to use an external css file and link it from that to be honest.
+
+If you can't tell, this is inspired quite a bit by gopher.
