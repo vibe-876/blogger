@@ -14,8 +14,15 @@ type Notes = String
 type Content = String
 
 
-renderHtml :: String -> String
-renderHtml = concatMap (show . fromLine) . splitOn "\n"
+genHtml :: String -> String -> String
+genHtml header body = genHead header ++ genBody body
+
+
+genHead :: String -> String
+genHead header = "<head>" ++ header ++ "</head>"
+
+genBody :: String -> String
+genBody input = "<body>" ++ (concatMap (show . fromLine) . splitOn "\n") input ++ "</body>"
 
 fromLine :: String -> HTML
 fromLine []     = Single "br" ""
