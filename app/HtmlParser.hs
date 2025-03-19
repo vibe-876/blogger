@@ -14,6 +14,9 @@ type Notes = String
 type Content = String
 
 
+renderHtml :: String -> String
+renderHtml = foldr (++) [] . map show . map fromLine . splitOn "\n"
+
 fromLine :: String -> HTML
 fromLine []     = Single "br" ""
 fromLine (x:xs) | x == ';'  = Pair "h1" xs ""
