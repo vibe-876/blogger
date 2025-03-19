@@ -1,10 +1,10 @@
 module HtmlParser where
 
+import Data.List.Split
 
--- Notes is there for incase I want inline stuff in future.
 data HTML = Pair Tag Content Notes
           | Single Tag Content
-
+ 
 instance Show HTML where
   show (Pair t c n) = foldr (++) [] ["<", t, " ", n, ">", c, "</", t, ">"]
   show (Single t c) = foldr (++) [] ["<", t, " ", c, ">"]
@@ -22,4 +22,7 @@ fromLine (x:xs) | x == ';'  = Pair "h1" xs ""
 
 buildLink :: String -> HTML
 buildLink [] = Pair "p" "<b>EMPTY LINK!</b>" ""
-buildLink xs = Pair "a" (takeWhile (/='!') xs) ("href = " ++ ((tail . dropWhile (/='!')) xs))
+buildLink xs = Pair "a" content ("href=" ++ notes)
+  where
+    text = splitOn "!" xs
+    (content : notes : rest) = if length text >= 2 then text else ("":"":[])
