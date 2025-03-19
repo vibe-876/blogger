@@ -2,6 +2,7 @@
 #+author: cam a.
 
 
+* Overview
 This is a little markdown to html project I'm working on, written in haskell.
 
 You should however note that this is in no way a good project of mine, if you want something good just use org or something.
@@ -9,3 +10,22 @@ This is just a learning exercise for me, to remind myself how to use cabal (it's
 Also, I am going to use it for my [[https://vibe-876.github.io/blog.html][website's blog]], so if you find an issue feel free to ping me a message on discord or something.
 
 To be honest, I might just switch back to org exporting to html at some point, but this works for now, and is really fun :) .
+
+* How to Use
+#+begin_src shell
+  git clone https://github.com/vibe-876/blogger/
+  cabal run exes -- [input-file] [output-file] [headers] # note that the .html is prepended to output-file by the program
+#+end_src
+
+~input-file~ is just the input file, a spec for which is given below.
+~output-file~ is the file that the html should be written to.
+~headers~ should be a html file that will be placed into the ~<head>...</head>~ section, instead of the ~<body>...</body>~ bit.
+
+* Overview of the Markup Language
+A semicolon at the start of a line denotes a header (ie ~;hello~ maps to ~<h1>hello</h1>~).
+An empty line becomes a line break.
+A line starting with ~/~ will become a link, which should be seperated into two parts, first the text to display, and then the hyperlink itself -- these two parts should be seperated by ~!~ (so ~/stupid blogger-thing!https://github.com/vibe-876/blogger/~ becomes ~<a href="https://github.com/vibe-876/blogger/">stupid blogger-thing</a>~).
+Finally, any other line gets put between ~<p>...</p>~ tags.
+
+I might add more in future, depending on what I need.
+All css should probably be in the ~[headers]~ argument, I'd just get it to use an external css file and link it from that to be honest.
