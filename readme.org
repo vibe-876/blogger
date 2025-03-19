@@ -6,3 +6,6 @@ This is a little markdown to html project I'm working on, written in haskell.
 
 You should however note that this is in no way a good project of mine, if you want something good just use org or something.
 This is just a learning exercise for me, to remind myself how to use cabal (it's been a while).
+Also, I am going to use it for my [[https://vibe-876.github.io/blog.html][website's blog]], so if you find an issue feel free to ping me a message on discord or something.
+
+To be honest, I might just switch back to org exporting to html at some point, but this works for now, and is really fun :) .
