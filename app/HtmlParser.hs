@@ -15,7 +15,7 @@ type Content = String
 
 
 renderHtml :: String -> String
-renderHtml = concat . map (show . fromLine) . splitOn "\n"
+renderHtml = concatMap (show . fromLine) . splitOn "\n"
 
 fromLine :: String -> HTML
 fromLine []     = Single "br" ""
