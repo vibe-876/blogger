@@ -1,7 +1,9 @@
 module Main where
 
-import HtmlParser
+import HtmlParser (renderHtml)
 
 
 main :: IO ()
-main = putStrLn "Hello, Haskell!"
+main = do
+  inputString <- readFile "test"
+  print (renderHtml inputString)
