@@ -22,6 +22,8 @@ To be honest, I might just switch back to org exporting to html at some point, b
 ~output-file~ is the file that the html should be written to.
 ~headers~ should be a html file that will be placed into the ~<head>...</head>~ section, instead of the ~<body>...</body>~ bit.
 
+I might write a script to ~cabal build~ and then copy the output to some part of the path (~$HOME/bin~ or something, that's where I keep mine), or a wrapper or something, but that's a task for later.
+
 * Overview of the Markup Language
 A semicolon at the start of a line denotes a header (ie ~;hello~ maps to ~<h1>hello</h1>~).
 An empty line becomes a line break.
