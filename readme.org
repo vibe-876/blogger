@@ -14,6 +14,7 @@ To be honest, I might just switch back to org exporting to html at some point, b
 * How to Use
 #+begin_src shell
   git clone https://github.com/vibe-876/blogger/
+  cd blogger/
   cabal run exes -- [input-file] [output-file] [headers] # note that the .html is prepended to output-file by the program
 #+end_src
 
