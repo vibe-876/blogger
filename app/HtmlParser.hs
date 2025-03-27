@@ -1,9 +1,12 @@
+{-# LANGUAGE GADTs #-}
 module HtmlParser where
 
-import Data.List.Split
+import Data.List.Split (splitOn)
 
-data HTML = Pair Tag Content Notes
-          | Single Tag Content
+
+data HTML where
+  Pair :: Tag -> Content -> Notes -> HTML
+  Single :: Tag -> Content -> HTML
  
 instance Show HTML where
   show (Pair t c n) = concat ["<", t, " ", n, ">", c, "</", t, ">"]
